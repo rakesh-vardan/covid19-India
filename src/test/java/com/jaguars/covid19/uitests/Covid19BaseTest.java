@@ -26,7 +26,7 @@ public class Covid19BaseTest {
     public void beforeTest(String browser, String gridHubURL, ITestContext testContext){
         logger.info("Browser: %s, Grid Hub URL: %s", browser, gridHubURL);
         driver = BrowserFactory.createInstance(browser, gridHubURL);
-
+        testContext.setAttribute("driver", driver);
     }
 
     @AfterTest
