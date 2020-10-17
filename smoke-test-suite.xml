@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
+    <listeners>
+        <listener class-name="com.jaguars.covid19.common.CustomListener" />
+    </listeners>
     <test verbose="2" name="C:/rakesh-vardan/stash-projects/covid19-India">
         <parameter name="browser" value="LOCAL_CHROME">
             <parameter name="gridHubURL"

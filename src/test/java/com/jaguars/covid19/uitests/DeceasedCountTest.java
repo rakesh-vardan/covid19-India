@@ -27,14 +27,14 @@ public class DeceasedCountTest extends Covid19BaseTest {
     public void validateDetailsOfFirstState() {
         String firstState = homePage.getStateNameByPosition(1);
         Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "15,76,062", "Verify active count");
-        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "1,89,715", "Verify active count");
+        Assert.assertEquals(homePage.getActiveCountForState(firstState), "1,89,715", "Verify active count");
     }
 
     @Test(priority = 4, dependsOnMethods = {"openCovid19HomePage"})
     public void validateDetailsOfSecondState() {
         String firstState = homePage.getStateNameByPosition(2);
         Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "3,21,858", "Verify active count");
-        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "1,89,715", "Verify active count");
+        Assert.assertEquals(homePage.getActiveCountForState(firstState), "1,89,715", "Verify active count");
     }
 
 

@@ -14,7 +14,6 @@ public class BasePage {
 
     public String getBasePageTitle() {
         return driver.getTitle();
-
     }
 
 }
