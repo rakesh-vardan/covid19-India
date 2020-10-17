@@ -1,4 +1,4 @@
-package com.jaguars;
+package com.jaguars.covid19.mobiletests;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
