@@ -1,5 +1,6 @@
 package com.jaguars.covid19.mobiletests;
 
+import com.jaguars.covid19.common.CommonTask;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -50,7 +51,7 @@ public class MobileApiTest {
             System.out.println(e.getMessage());
         }
 
-        driver.get("https://www.covid19india.org/");
+        driver.get(CommonTask.getTestProperty("appURL"));
 
         //TODO:: update this to dynamic wait
         Thread.sleep(10000);
@@ -59,6 +60,7 @@ public class MobileApiTest {
 
         for (int i = 1; i <= 3; i++) {
             MobileElement stateName = driver.findElementByXPath("(//div[@class='state-name fadeInUp'])[" + i + "]");
+
             MobileElement confirmedCountMobile = driver.findElementByXPath("(//div[@class='state-name fadeInUp'])[" + i + "]/parent::div/following-sibling::div/div[2]");
             MobileElement ActiveCountMobile = driver.findElementByXPath("(//div[@class='state-name fadeInUp'])[" + i + "]/parent::div/following-sibling::div[2]/div");
             MobileElement RecoveredCountMobile = driver.findElementByXPath("(//div[@class='state-name fadeInUp'])[" + i + "]/parent::div/following-sibling::div[3]/div[2]");
