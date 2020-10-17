@@ -92,14 +92,13 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>smoke-test-suite.xml</suiteXmlFile>
                     </suiteXmlFiles>
-                    <!--
                     <properties>
                         <property>
                             <name>listener</name>
                             <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>
                         </property>
                     </properties>
-                    -->
+
                 </configuration>
             </plugin>
         </plugins>
