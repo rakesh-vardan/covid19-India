@@ -5,6 +5,7 @@ import com.jaguars.covid19.common.CommonTask;
 import com.jaguars.covid19.pages.HomePage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DeceasedCountTest extends Covid19BaseTest {
@@ -21,6 +22,22 @@ public class DeceasedCountTest extends Covid19BaseTest {
     public void sortByDeceasedCount() {
         homePage.sortByDeceasedCount();
     }
+
+    @Test(priority = 3, dependsOnMethods = {"openCovid19HomePage"})
+    public void validateDetailsOfFirstState() {
+        String firstState = homePage.getStateNameByPosition(1);
+        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "15,76,062", "Verify active count");
+        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "1,89,715", "Verify active count");
+    }
+
+    @Test(priority = 4, dependsOnMethods = {"openCovid19HomePage"})
+    public void validateDetailsOfSecondState() {
+        String firstState = homePage.getStateNameByPosition(2);
+        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "3,21,858", "Verify active count");
+        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "1,89,715", "Verify active count");
+    }
+
+
 
 }
 
