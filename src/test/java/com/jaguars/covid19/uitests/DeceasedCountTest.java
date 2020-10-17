@@ -1,6 +1,5 @@
 package com.jaguars.covid19.uitests;
 
-import com.jaguars.covid19.common.BrowserFactory;
 import com.jaguars.covid19.common.CommonTask;
 import com.jaguars.covid19.pages.HomePage;
 import org.apache.logging.log4j.LogManager;
@@ -9,8 +8,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class DeceasedCountTest extends Covid19BaseTest {
-    static final Logger logger= LogManager.getLogger(DeceasedCountTest.class);
-    HomePage homePage;
+
+    private HomePage homePage;
 
     @Test(priority = 1)
     public void openCovid19HomePage() {
@@ -26,18 +25,29 @@ public class DeceasedCountTest extends Covid19BaseTest {
     @Test(priority = 3, dependsOnMethods = {"openCovid19HomePage"})
     public void validateDetailsOfFirstState() {
         String firstState = homePage.getStateNameByPosition(1);
-        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "15,76,062", "Verify active count");
-        Assert.assertEquals(homePage.getActiveCountForState(firstState), "1,89,715", "Verify active count");
+        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), CommonTask.getCount(firstState, "confirmed"), "Verify confirmed count");
+        Assert.assertEquals(homePage.getActiveCountForState(firstState), CommonTask.getCount(firstState, "active"), "Verify active count");
+        Assert.assertEquals(homePage.getRecoveredCountForState(firstState), CommonTask.getCount(firstState, "recovered"), "Verify Recovered count");
+        Assert.assertEquals(homePage.getDeceasedCountForState(firstState), CommonTask.getCount(firstState, "deaths"), "Verify Deceased count");
     }
 
     @Test(priority = 4, dependsOnMethods = {"openCovid19HomePage"})
     public void validateDetailsOfSecondState() {
-        String firstState = homePage.getStateNameByPosition(2);
-        Assert.assertEquals(homePage.getConfirmedCountForState(firstState), "3,21,858", "Verify active count");
-        Assert.assertEquals(homePage.getActiveCountForState(firstState), "1,89,715", "Verify active count");
+        String secondState = homePage.getStateNameByPosition(2);
+        Assert.assertEquals(homePage.getConfirmedCountForState(secondState), CommonTask.getCount(secondState, "confirmed"), "Verify confirmed count");
+        Assert.assertEquals(homePage.getActiveCountForState(secondState), CommonTask.getCount(secondState, "active"), "Verify active count");
+        Assert.assertEquals(homePage.getRecoveredCountForState(secondState), CommonTask.getCount(secondState, "recovered"), "Verify Recovered count");
+        Assert.assertEquals(homePage.getDeceasedCountForState(secondState), CommonTask.getCount(secondState, "deaths"), "Verify Deceased count");
     }
 
-
+    @Test(priority = 5, dependsOnMethods = {"openCovid19HomePage"})
+    public void validateDetailsOfThirdState() {
+        String thirdState = homePage.getStateNameByPosition(3);
+        Assert.assertEquals(homePage.getConfirmedCountForState(thirdState), CommonTask.getCount(thirdState, "confirmed"), "Verify confirmed count");
+        Assert.assertEquals(homePage.getActiveCountForState(thirdState), CommonTask.getCount(thirdState, "active"), "Verify active count");
+        Assert.assertEquals(homePage.getRecoveredCountForState(thirdState), CommonTask.getCount(thirdState, "recovered"), "Verify Recovered count");
+        Assert.assertEquals(homePage.getDeceasedCountForState(thirdState), CommonTask.getCount(thirdState, "deaths"), "Verify Deceased count");
+    }
 
 }
 
