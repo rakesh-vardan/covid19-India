@@ -79,9 +79,9 @@ public class MobileApiTest {
 
             logger.info("active" + activeAPI + "confirmed" + confirmedAPI + "recovered" + recoveredAPI);
 
-            assertEquals(confirmedCountMobile.getText(), confirmedAPI);
-            assertEquals(ActiveCountMobile.getText(), activeAPI);
-            assertEquals(RecoveredCountMobile.getText(), recoveredAPI);
+            assertEquals(confirmedCountMobile.getAttribute("title"), confirmedAPI);
+            assertEquals(ActiveCountMobile.getAttribute("title"), activeAPI);
+            assertEquals(RecoveredCountMobile.getAttribute("title"), recoveredAPI);
         }
     }
 

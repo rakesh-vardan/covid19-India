@@ -14,10 +14,10 @@
             </class>
         </classes>
     </test>
-<!--    <test verbose="2" name="Mobile API Flow">-->
-<!--        <classes>-->
-<!--            <class name="com.jaguars.covid19.mobiletests.MobileApiTest">-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test verbose="2" name="Mobile API Flow">
+        <classes>
+            <class name="com.jaguars.covid19.mobiletests.MobileApiTest">
+            </class>
+        </classes>
+    </test>
 </suite>
