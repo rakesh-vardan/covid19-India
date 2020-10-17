@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+	<Properties>
+		<Property name="log-path">logs</Property>
+	</Properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</Console>
+		<ReportPortalLog4j2Appender
+			name="ReportPortalAppender">
+			<PatternLayout
+				pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n" />
+		</ReportPortalLog4j2Appender>
+	</Appenders>
+	<Loggers>
+		<Root level="info" additivity="false">
+			<appender-ref ref="console" level="info" />
+			<appender-ref ref="file-log" level="info" />
+		</Root>
+		<Logger name="com.epam.reportportal.service" level="WARN"
+			additivity="false">
+			<AppenderRef ref="ConsoleAppender" />
+			<AppenderRef ref="ReportPortalAppender" />
+		</Logger>
+		<Logger name="com.epam.reportportal.util" level="WARN"
+			additivity="false">
+			<AppenderRef ref="ConsoleAppender" />
+			<AppenderRef ref="ReportPortalAppender" />
+		</Logger>
+	</Loggers>
+</Configuration> 
+
+

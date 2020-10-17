@@ -2,11 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" name="C:/rakesh-vardan/stash-projects/covid19-India">
+        <parameter name="browser" value="LOCAL_CHROME">
+            <parameter name="gridHubURL"
+                       value="https://pradip.patra:SafJQNbW4566rAwt38Cdf3YqtMyrUW2yAFWgKxBwy9zqiVwgo0@hub.lambdatest.com/wd/hub" />
+        </parameter>
         <classes>
-            <class name="com.jaguars.Sample">
-                <methods>
-                    <include name="testMe"/>
-                </methods>
+            <class name="com.jaguars.covid19.uitests.DeceasedCountTest">
             </class>
         </classes>
     </test>
